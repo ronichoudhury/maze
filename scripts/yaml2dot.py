@@ -8,10 +8,10 @@ def main():
         print >>sys.stderr, "could not read YAML graph data: %s" % (e)
         return 1
 
-    print "graph {"
+    print "digraph {"
 
     for room, doors in maze.iteritems():
-        print "  r%s -> {%s}" % (room, " ".join(map(lambda door: "r%s" % (door), doors)))
+        print "  %s -> {%s}" % (room, " ".join(map(lambda door: "%s" % (door), doors)))
 
     print "}"
 

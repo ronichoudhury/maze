@@ -1,10 +1,11 @@
 import sys
-import yaml
+
+from maze import load as load_maze
 
 def main():
     try:
-        maze = yaml.safe_load(sys.stdin.read())
-    except yaml.YAMLError as e:
+        maze = load_maze()
+    except ValueError as e:
         print >>sys.stderr, "could not read YAML graph data: %s" % (e)
         return 1
 
